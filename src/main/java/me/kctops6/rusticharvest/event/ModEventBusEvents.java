@@ -7,19 +7,16 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
 
-@Mod.EventBusSubscriber(modid = RusticHarvest.MODID)
+@EventBusSubscriber(modid = RusticHarvest.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEventBusEvents {
 
-    /**
-     * ???
-     * @param event ???
-     */
     @SubscribeEvent
     public static void onBlockDrops(BlockDropsEvent event) {
         boolean isOakLeaves = event.getState().is(Blocks.OAK_LEAVES) || event.getState().is(Blocks.DARK_OAK_LEAVES);
+
         if (isOakLeaves) {
             if (event.getLevel().getRandom().nextFloat() < Config.greenAppleChance) {
                 event.getDrops().add(new ItemEntity(
