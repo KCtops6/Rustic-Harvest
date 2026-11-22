@@ -1,6 +1,7 @@
 package me.kctops6.rusticharvest;
 
 import com.mojang.logging.LogUtils;
+import me.kctops6.rusticharvest.block.ModBlocks;
 import me.kctops6.rusticharvest.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -30,6 +31,7 @@ public class RusticHarvest {
      */
     public RusticHarvest(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         modEventBus.addListener(this::addCreative);
@@ -47,7 +49,10 @@ public class RusticHarvest {
      * @param event ???
      */
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) event.accept(ModItems.GREEN_APPLE);
+        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(ModItems.GREEN_APPLE);
+            event.accept(ModItems.BLUEBERRIES);
+        }
     }
 
     /**
