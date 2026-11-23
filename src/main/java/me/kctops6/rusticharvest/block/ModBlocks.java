@@ -22,6 +22,12 @@ public class ModBlocks {
                     .sound(SoundType.SWEET_BERRY_BUSH)
                     .pushReaction(PushReaction.DESTROY)));
 
+    public static final DeferredBlock<Block> BARLEY_CROP = BLOCKS.register("barley_crop",
+            () -> new BarleyCropBlock(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .randomTicks()
+                    .sound(SoundType.CROP)));
+
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }

@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "rustic_harvest:barley",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "rustic_harvest:barley_crop",
+              "properties": {
+                "age": "7"
+              }
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:apply_bonus",
+          "formula": "minecraft:binomial_with_bonus_count",
+          "parameters": {
+            "extra": 3,
+            "probability": 0.5714286
+          },
+          "enchantment": "minecraft:fortune"
+        },
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "rustic_harvest:barley_seeds"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:apply_bonus",
+          "formula": "minecraft:binomial_with_bonus_count",
+          "parameters": {
+            "extra": 3,
+            "probability": 0.5714286
+          },
+          "enchantment": "minecraft:fortune"
+        },
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "rustic_harvest:blocks/barley_crop"
+}
