@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "rustic_harvest:block/chicken_of_the_woods" },
+    "facing=south": { "model": "rustic_harvest:block/chicken_of_the_woods", "y": 180 },
+    "facing=east": { "model": "rustic_harvest:block/chicken_of_the_woods", "y": 90 },
+    "facing=west": { "model": "rustic_harvest:block/chicken_of_the_woods", "y": 270 }
+  }
+}

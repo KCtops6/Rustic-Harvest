@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_forest",
+  "features": "rustic_harvest:chicken_of_the_woods",
+  "step": "vegetal_decoration"
+}

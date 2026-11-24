@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "rustic_harvest:chicken_of_the_woods",
+            "Properties": {
+              "facing": "north"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "rustic_harvest:chicken_of_the_woods",
+            "Properties": {
+              "facing": "south"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "rustic_harvest:chicken_of_the_woods",
+            "Properties": {
+              "facing": "east"
+            }
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "rustic_harvest:chicken_of_the_woods",
+            "Properties": {
+              "facing": "west"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

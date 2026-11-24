@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "rustic_harvest:block/chicken_of_the_woods",
+    "down": "rustic_harvest:block/chicken_of_the_woods",
+    "up": "rustic_harvest:block/chicken_of_the_woods",
+    "north": "rustic_harvest:block/chicken_of_the_woods",
+    "south": "rustic_harvest:block/chicken_of_the_woods",
+    "east": "rustic_harvest:block/chicken_of_the_woods",
+    "west": "rustic_harvest:block/chicken_of_the_woods"
+  }
+}

@@ -52,6 +52,8 @@ public class RusticHarvest {
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModItems.GREEN_APPLE);
             event.accept(ModItems.BLUEBERRIES);
+            event.accept(ModItems.BARLEY);
+            event.accept(ModItems.CHICKEN_OF_THE_WOODS);
         }
     }
 

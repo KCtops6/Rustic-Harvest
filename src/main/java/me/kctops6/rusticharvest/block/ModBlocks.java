@@ -2,6 +2,7 @@ package me.kctops6.rusticharvest.block;
 
 import me.kctops6.rusticharvest.RusticHarvest;
 import me.kctops6.rusticharvest.block.custom.BlueberryBushBlock;
+import me.kctops6.rusticharvest.block.custom.ChickenOfTheWoodsBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -27,6 +28,15 @@ public class ModBlocks {
                     .noCollission()
                     .randomTicks()
                     .sound(SoundType.CROP)));
+
+    public static final DeferredBlock<Block> CHICKEN_OF_THE_WOODS = BLOCKS.register("chicken_of_the_woods",
+            () -> new ChickenOfTheWoodsBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE)
+                    .noCollission()
+                    .randomTicks()
+                    .sound(SoundType.FUNGUS)
+                    .strength(0.2F)
+                    .pushReaction(PushReaction.DESTROY)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

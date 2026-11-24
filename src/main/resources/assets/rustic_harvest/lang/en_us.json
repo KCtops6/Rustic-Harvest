@@ -2,5 +2,7 @@
   "item.rustic_harvest.green_apple": "Green Apple",
   "item.rustic_harvest.blueberries": "Blueberries",
   "block.rustic_harvest.blueberry_bush": "Blueberry Bush",
-  "itemGroup.rustic_harvest": "Rustic Harvest"
+  "itemGroup.rustic_harvest": "Rustic Harvest",
+  "block.rustic_harvest.chicken_of_the_woods": "Chicken of the Woods",
+  "item.rustic_harvest.chicken_of_the_woods": "Chicken of the Woods"
 }

@@ -25,6 +25,10 @@ public class ModItems {
     public static final DeferredItem<Item> BARLEY_SEEDS = ITEMS.register("barley_seeds",
             () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), new Item.Properties()));
 
+    public static final DeferredItem<Item> CHICKEN_OF_THE_WOODS = ITEMS.register("chicken_of_the_woods",
+            () -> new ItemNameBlockItem(ModBlocks.CHICKEN_OF_THE_WOODS.get(), new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(3).saturationModifier(0.6f).build())));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
