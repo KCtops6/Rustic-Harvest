@@ -4,5 +4,18 @@
   "block.rustic_harvest.blueberry_bush": "Blueberry Bush",
   "itemGroup.rustic_harvest": "Rustic Harvest",
   "block.rustic_harvest.chicken_of_the_woods": "Chicken of the Woods",
-  "item.rustic_harvest.chicken_of_the_woods": "Chicken of the Woods"
+  "item.rustic_harvest.chicken_of_the_woods": "Chicken of the Woods",
+  "block.rustic_harvest.rye_crop": "Rye Crop",
+  "item.rustic_harvest.rye": "Rye",
+  "item.rustic_harvest.rye_seeds": "Rye Seeds",
+  "block.rustic_harvest.barley_crop": "Barley Crop",
+  "item.rustic_harvest.barley": "Barley",
+  "item.rustic_harvest.barley_seeds": "Barley Seeds",
+  "block.rustic_harvest.corn_crop": "Corn Crop",
+  "item.rustic_harvest.corn": "Corn",
+  "item.rustic_harvest.corn_seeds": "Corn Seeds",
+
+  "creativetab.rusticharvest.fruits": "Rustic Harvest Fruits",
+  "creativetab.rusticharvest.grains": "Rustic Harvest Grains",
+  "creativetab.rusticharvest.vegetables": "Rustic Harvest Vegetables"
 }

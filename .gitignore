@@ -3,3 +3,5 @@
 /build/
 /gradle/
 /runs/
+generate_crop.bat
+/src/main/java/me/kctops6/rusticharvest/datagen/

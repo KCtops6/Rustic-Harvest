@@ -1,0 +1,8 @@
+rye_crop_stage0.png
+rye_crop_stage1.png
+rye_crop_stage2.png
+rye_crop_stage3.png
+rye_crop_stage4.png
+rye_crop_stage5.png
+rye_crop_stage6.png
+rye_crop_stage7.png

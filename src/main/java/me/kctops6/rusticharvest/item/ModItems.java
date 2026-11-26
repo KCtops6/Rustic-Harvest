@@ -21,9 +21,23 @@ public class ModItems {
 
     public static final DeferredItem<Item> BARLEY = ITEMS.register("barley",
             () -> new Item(new Item.Properties()));
-
     public static final DeferredItem<Item> BARLEY_SEEDS = ITEMS.register("barley_seeds",
             () -> new ItemNameBlockItem(ModBlocks.BARLEY_CROP.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> RYE = ITEMS.register("rye",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> RYE_SEEDS = ITEMS.register("rye_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.RYE_CROP.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> GARLIC = ITEMS.register("garlic",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GARLIC_SEEDS = ITEMS.register("garlic_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.GARLIC_CROP.get(), new Item.Properties()));
+
+    public static final DeferredItem<Item> CORN = ITEMS.register("corn",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CORN_SEEDS = ITEMS.register("corn_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.CORN_CROP.get(), new Item.Properties()));
 
     public static final DeferredItem<Item> CHICKEN_OF_THE_WOODS = ITEMS.register("chicken_of_the_woods",
             () -> new ItemNameBlockItem(ModBlocks.CHICKEN_OF_THE_WOODS.get(), new Item.Properties().food(new FoodProperties.Builder()

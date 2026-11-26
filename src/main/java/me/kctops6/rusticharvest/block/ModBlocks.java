@@ -1,8 +1,11 @@
 package me.kctops6.rusticharvest.block;
 
 import me.kctops6.rusticharvest.RusticHarvest;
+import me.kctops6.rusticharvest.block.custom.BaseCropBlock;
 import me.kctops6.rusticharvest.block.custom.BlueberryBushBlock;
 import me.kctops6.rusticharvest.block.custom.ChickenOfTheWoodsBlock;
+import me.kctops6.rusticharvest.block.custom.TallCropBlock;
+import me.kctops6.rusticharvest.item.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -24,10 +27,18 @@ public class ModBlocks {
                     .pushReaction(PushReaction.DESTROY)));
 
     public static final DeferredBlock<Block> BARLEY_CROP = BLOCKS.register("barley_crop",
-            () -> new BarleyCropBlock(BlockBehaviour.Properties.of()
-                    .noCollission()
-                    .randomTicks()
-                    .sound(SoundType.CROP)));
+            () -> new BaseCropBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().sound(SoundType.CROP),
+                    ModItems.BARLEY_SEEDS::get));
+    public static final DeferredBlock<Block> GARLIC_CROP = BLOCKS.register("garlic_crop",
+            () -> new BaseCropBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().sound(SoundType.CROP),
+                    ModItems.GARLIC_SEEDS::get));
+    public static final DeferredBlock<Block> RYE_CROP = BLOCKS.register("rye_crop",
+            () -> new BaseCropBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().sound(SoundType.CROP),
+                    ModItems.RYE_SEEDS::get));
+
+    public static final DeferredBlock<Block> CORN_CROP = BLOCKS.register("corn_crop",
+            () -> new TallCropBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().sound(SoundType.CROP),
+                    ModItems.CORN_SEEDS::get, 4));
 
     public static final DeferredBlock<Block> CHICKEN_OF_THE_WOODS = BLOCKS.register("chicken_of_the_woods",
             () -> new ChickenOfTheWoodsBlock(BlockBehaviour.Properties.of()
