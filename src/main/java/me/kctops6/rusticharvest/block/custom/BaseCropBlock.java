@@ -1,7 +1,7 @@
-package me.kctops6.rusticharvest.block;
+package me.kctops6.rusticharvest.block.custom;
 
-import me.kctops6.rusticharvest.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.LevelReader;
@@ -14,8 +14,12 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class BarleyCropBlock extends CropBlock {
+import java.util.function.Supplier;
+
+public class BaseCropBlock extends CropBlock {
     public static final int MAX_AGE = 7;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_7;
 
@@ -30,17 +34,20 @@ public class BarleyCropBlock extends CropBlock {
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
     };
 
-    public BarleyCropBlock(Properties properties) {
+    private final Supplier<ItemLike> seedSupplier;
+
+    public BaseCropBlock(Properties properties, Supplier<ItemLike> seedSupplier) {
         super(properties);
+        this.seedSupplier = seedSupplier;
     }
 
     @Override
-    protected ItemLike getBaseSeedId() {
-        return ModItems.BARLEY_SEEDS.get();
+    protected @NotNull ItemLike getBaseSeedId() {
+        return this.seedSupplier.get();
     }
 
     @Override
-    public IntegerProperty getAgeProperty() {
+    public @NotNull IntegerProperty getAgeProperty() {
         return AGE;
     }
 
@@ -55,22 +62,26 @@ public class BarleyCropBlock extends CropBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE_BY_AGE[this.getAge(state)];
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.COARSE_DIRT);
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
+        return state.is(Blocks.FARMLAND);
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        BlockPos belowPos = pos.below();
-        BlockState belowState = level.getBlockState(belowPos);
-        if (belowState.is(Blocks.GRASS_BLOCK) || belowState.is(Blocks.COARSE_DIRT)) {
-            return level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos);
-        }
-        return super.canSurvive(state, level, pos);
+    protected boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
+        BlockState belowState = level.getBlockState(pos.below());
+        return super.canSurvive(state, level, pos) || belowState.is(Blocks.GRASS_BLOCK) || belowState.is(Blocks.COARSE_DIRT);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        BlockState belowState = context.getLevel().getBlockState(context.getClickedPos().below());
+        if (!belowState.is(Blocks.FARMLAND)) return null;
+        return super.getStateForPlacement(context);
     }
 }
